@@ -26,7 +26,7 @@ boolean drawGrid = true, drawCtrl = true;
 
 //Choose P3D for a 3D scene, or P2D or JAVA2D for a 2D scene
 String renderer = P3D;
-
+ArrayList<Vector> puntos = new ArrayList<Vector>();
 void setup() {
   size(800, 800, renderer);
   scene = new Scene(this);
@@ -47,6 +47,10 @@ void setup() {
     Node ctrlPoint = new OrbitNode(scene);
     ctrlPoint.randomize();
     interpolator.addKeyFrame(ctrlPoint);
+  }
+  
+  for(Frame frame: interpolator.keyFrames()){
+    puntos.add(frame.position());
   }
 }
 
@@ -71,6 +75,26 @@ void draw() {
   // To retrieve the positions of the control points do:
   // for(Frame frame : interpolator.keyFrames())
   //   frame.position();
+  switch (mode){
+    case 0:
+      CubicNaturalSpline natural= new CubicNaturalSpline(puntos);
+      natural.pintar();
+      text("Cubicas Naturales", 100, 100);
+      break;
+    case 1: 
+      HermiteSpline hermite= new HermiteSpline(puntos);
+      hermite.pintar();
+      text("Hermite", 100, 100);
+      break;
+    case 2: 
+      Bezier bezier = new Bezier(puntos);
+      bezier.pintar();
+      text("Bezier", 100, 100);
+      break;
+    case 3: 
+      //cubic bezier
+      break;
+  }
 }
 
 void keyPressed() {

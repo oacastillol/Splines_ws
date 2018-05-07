@@ -20,9 +20,10 @@ Máximo 3.
 
 Complete la tabla:
 
-| Integrante | github nick |
-|------------|-------------|
-|            |             |
+|   Integrante   | github nick  |
+|----------------|--------------|
+| Osmar Castillo | oacastillol  |
+| Christian Vaca | ccvacad      |
 
 ## Entrega
 
