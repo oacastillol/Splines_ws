@@ -94,6 +94,7 @@ void draw() {
     case 3: 
       BezierCubic bezier3 = new BezierCubic(puntos);
       bezier3.pintar();
+      text("Cubic Bezier", 100, 100);
       break;
   }
 }
