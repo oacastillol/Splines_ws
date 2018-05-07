@@ -92,7 +92,8 @@ void draw() {
       text("Bezier", 100, 100);
       break;
     case 3: 
-      //cubic bezier
+      BezierCubic bezier3 = new BezierCubic(puntos);
+      bezier3.pintar();
       break;
   }
 }
